@@ -14,6 +14,7 @@ import com.google.firebase.auth.UserRecord;
 import com.google.firebase.auth.UserRecord.CreateRequest;
 import com.google.firebase.cloud.FirestoreClient;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,7 +27,7 @@ public class FirestoreContext {
     public Firestore firebase() {
         try {
             FirebaseOptions options = new FirebaseOptions.Builder()
-                    .setCredentials(GoogleCredentials.fromStream(getClass().getResourceAsStream("key.json")))
+                    .setCredentials(GoogleCredentials.fromStream(Objects.requireNonNull(getClass().getResourceAsStream("key.json"))))
                     .build();
             FirebaseApp.initializeApp(options);
         } catch (IOException ex) {

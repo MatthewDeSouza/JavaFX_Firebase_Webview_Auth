@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="467.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modelview.AccessFBView">
    <children>
       <VBox alignment="CENTER_RIGHT" layoutX="7.0" prefHeight="166.0" prefWidth="485.0" spacing="10.0">
@@ -32,7 +33,7 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="switchroot" mnemonicParsing="false" onAction="#switchToSecondary" text="Switch" textAlignment="CENTER" />
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#switchToLogin" text="Login" textAlignment="CENTER" />
                </children>
             </HBox>
          </children>
@@ -41,6 +42,7 @@
          </padding>
       </VBox>
       <TextArea fx:id="outputField" layoutX="6.0" layoutY="157.0" prefHeight="304.0" prefWidth="485.0" />
+      <Label fx:id="userLabel" layoutX="14.0" layoutY="470.0" />
    </children>
    <opaqueInsets>
       <Insets />

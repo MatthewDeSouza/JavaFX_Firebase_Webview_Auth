@@ -1,6 +1,7 @@
 package modelview;
 
 import com.mycompany.mvvmexample.App;
+import javafx.scene.control.Label;
 import viewmodel.AccessDataViewModel;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
@@ -35,9 +36,12 @@ import javafx.scene.control.TextField;
 import models.Person;
 
 public class AccessFBView {
+    @FXML
+    protected Label userLabel;
 
- 
-     @FXML
+    @FXML
+    private Button loginButton;
+    @FXML
     private TextField nameField;
     @FXML
     private TextField majorField;
@@ -49,7 +53,9 @@ public class AccessFBView {
     private Button readButton;
     @FXML
     private TextArea outputField;
-     private boolean key;
+
+    protected static String loggedInName;
+    private boolean key;
     private ObservableList<Person> listOfUsers = FXCollections.observableArrayList();
     private Person person;
     public ObservableList<Person> getListOfUsers() {
@@ -75,7 +81,7 @@ public class AccessFBView {
     }
     
             @FXML
-    private void regRecord(ActionEvent event) {
+    private void regRecord(ActionEvent event) throws IOException {
         registerUser();
     }
     
@@ -145,25 +151,12 @@ public class AccessFBView {
         }
     }
 
-    public boolean registerUser() {
-        UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user@example.com")
-                .setEmailVerified(false)
-                .setPassword("secretPassword")
-                .setPhoneNumber("+11234567890")
-                .setDisplayName("John Doe")
-                .setDisabled(false);
+    public void registerUser() throws IOException {
+        App.setRoot("RegisterUser.fxml");
+    }
 
-        UserRecord userRecord;
-        try {
-            userRecord = App.fauth.createUser(request);
-            System.out.println("Successfully created new user: " + userRecord.getUid());
-            return true;
-
-        } catch (FirebaseAuthException ex) {
-           // Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-        
+    public void switchToLogin(ActionEvent actionEvent) throws IOException {
+        App.setRoot("LoginUser.fxml");
+        userLabel.setText(loggedInName);
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="467.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modelview.LoginUserController">
+    <children>
+        <VBox alignment="CENTER_RIGHT" layoutX="7.0" prefHeight="166.0" prefWidth="485.0" spacing="10.0">
+            <children>
+                <TextField fx:id="emailField" alignment="TOP_LEFT" promptText="email" />
+                <PasswordField fx:id="passwordField" promptText="password" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+        <Button fx:id="loginButton" layoutX="214.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginUser" text="Login" textAlignment="CENTER" />
+        <Button fx:id="returnButton" layoutX="214.0" layoutY="310.0" mnemonicParsing="false" onAction="#returnBack" text="Back" textAlignment="CENTER" />
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>
